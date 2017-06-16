@@ -128,8 +128,7 @@ and (min-height : 1050px) and (max-height : 1280px){
   color: darkred;
 }
 .logout:hover{
-  background-color: black;
-  color: red;
+  color: darkred;
 }
 .login{
 	color: olive;
@@ -151,4 +150,30 @@ and (min-height : 1050px) and (max-height : 1280px){
 .onlyicon:hover{
 	color:deepskyblue;
 }
+.sideborder{
+	border-width: 10em;
+	border-left: thick double green;
+}
+/* -----------------------  for Logout  -----------------------   */
 
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+/* -----------------------  for Top Toolbar  -----------------------   */
+
+.header-toolbar {
+position: fixed;
+}
+.toolbar-shadow{
+box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}  
+.universal-spacer{
+	padding-top: 1em
+}
+.border-right{
+	border-right:1px solid rgba(255,255,255,0.5);
+}
