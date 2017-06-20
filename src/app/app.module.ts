@@ -21,6 +21,9 @@ import { ComingSoonComponent } from './components/coming-soon/coming-soon.compon
 import { DragNDropDirective } from './directives/drag-ndrop.directive';
 import { DragAndDropComponent } from './components/drag-and-drop/drag-and-drop.component';
 import { JiraInDetailsComponent } from './components/jira-in-details/jira-in-details.component';
+import { ConsumersComponent } from './components/consumers/consumers.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SaleComponent } from './components/sale/sale.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { JiraInDetailsComponent } from './components/jira-in-details/jira-in-det
     DragNDropDirective,
     DragAndDropComponent,
     JiraInDetailsComponent,
+    ConsumersComponent,
+    ProductsComponent,
+    SaleComponent,
       ],
   imports: [
     BrowserModule,

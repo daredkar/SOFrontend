@@ -1,67 +1,77 @@
   <div class="container-fluid">
     <div class="row">
-  <md-toolbar  style=" position: relative; z-index: 6; background-color: #229ca3" class="toolbar-shadow">
+      <md-toolbar  style=" position: fixed; z-index: 6; background-color: #229ca3" class="toolbar-shadow">
+          <span class="example-spacer"><h4 style="font-family:verdana; color: white" [mdMenuTriggerFor]="menumain">Show-Off Sales Application</h4></span>
+          <md-menu #menumain="mdMenu">
+            <button md-menu-item> <i class="material-icons example-icon" style="font-size: 22px; color: olive" >card_giftcard</i>Products</button>
+            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: #9b0413">supervisor_account</i>Consumer</button>
+            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: skyblue">autorenew</i>Sale</button>
+            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: violet">update</i>Task Tracking</button>
+            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">dashboard</i>Dashboard</button>
+            <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
+          </md-menu>
+          <nav md-tab-nav-bar>
+              <label md-tab-link
+              [routerLink]="['/login']"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive"
+              *ngIf = "!loggedIn">
+              <span mdTooltip="Login"><i class="material-icons login" md-68 style="font-size: 48px;">&#xE853;</i></span>
+              <!--Login-->
+            </label>
+            <label md-tab-link
+              [routerLink]="['bulkCreate']"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive"
+              *ngIf = "loggedIn" class="icon">
+              <i class="material-icons" style="padding-right: 0.5em">card_giftcard</i>Products
+            </label>
+            <label md-tab-link
+              [routerLink]="['/consumer']"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive"
+              *ngIf = "loggedIn" class="icon">
+              <i class="material-icons" style="padding-right: 0.5em">supervisor_account</i>Consumers
+            </label>
+            <label md-tab-link
+              [routerLink]="['\login']"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive"
+              *ngIf = "loggedIn" class="icon">
+              <i class="material-icons" style="padding-right: 0.5em">autorenew</i>Sale
+            </label>
+            <label md-tab-link
+              [routerLink]="['\login']"
+              routerLinkActive #rla="routerLinkActive"
+              [active]="rla.isActive"
+              *ngIf = "loggedIn" class="icon">
+              <i class="material-icons" style="padding-right: 0.5em">update</i>Task Tracking
+            </label>
+          </nav>
+          <span mdTooltip="Logout"><button md-button  *ngIf = "loggedIn" class="logout" style="color: #af0a6d" [mdMenuTriggerFor]="menu"> <i class="material-icons example-icon" style="font-size: 48px;">view_headline</i></button> </span>
 
-    <span class="example-spacer"><h4 style="font-family:verdana; color: white">Show-Off Sales Application</h4></span>
-    <span mdTooltip="Logout"><button md-button  *ngIf = "loggedIn" class="logout" style="color: #af0a6d" [mdMenuTriggerFor]="menu"> <i class="material-icons example-icon" style="font-size: 48px;">view_headline</i></button> </span>
-    <md-menu #menu="mdMenu">
-    <button md-menu-item> <i class="material-icons example-icon login" style="font-size: 22px;">&#xE853;</i>Edit Profile</button>
-    <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
-  </md-menu>
-  </md-toolbar> 
+          <md-menu #menu="mdMenu">
+            <button md-menu-item> <i class="material-icons example-icon login" style="font-size: 22px;">&#xE853;</i>Edit Profile</button>
+            <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
+          </md-menu>
+  
+      </md-toolbar> 
     </div>
 
-    <div class="row">
-  <div class="col-md-12 col-lg-12 col-xs-12" style="background-color: #efedef">
-  <nav md-tab-nav-bar>
-    <label md-tab-link
-      [routerLink]="['/login']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive"
-      *ngIf = "!loggedIn">
-      <span mdTooltip="Login"><i class="material-icons login" md-68 style="font-size: 48px;">&#xE853;</i></span>
-      <!--Login-->
-    </label>
-    <label md-tab-link
-      [routerLink]="['bulkCreate']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive"
-      *ngIf = "loggedIn" class="icon">
-      <i class="material-icons" style="padding-right: 0.5em">card_giftcard</i>Products
-    </label>
-    <label md-tab-link
-      [routerLink]="['/comingsoon']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive"
-      *ngIf = "loggedIn" class="icon">
-      <i class="material-icons" style="padding-right: 0.5em">supervisor_account</i>Consumer
-    </label>
-    <label md-tab-link
-      [routerLink]="['\login']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive"
-      *ngIf = "loggedIn" class="icon">
-      <i class="material-icons" style="padding-right: 0.5em">autorenew</i>Sale
-    </label>
-    <label md-tab-link
-      [routerLink]="['\login']"
-      routerLinkActive #rla="routerLinkActive"
-      [active]="rla.isActive"
-      *ngIf = "loggedIn" class="icon">
-      <i class="material-icons" style="padding-right: 0.5em">update</i>Task Tracking
-    </label>
-  </nav>
-  </div>
-  </div>
-    <div class="row border-right">
+    <!--<div class="row">
+      <div class="col-md-12 col-lg-12 col-xs-12" style="background-color: #efedef">
+  
+    </div>
+  </div>-->
+    <div class="row border-right" style="padding-top: 4em">
       <div class="col-md-2 col-lg-2 col-xs-2 universal-spacer" *ngIf = "loggedIn">
-            <md-input-container class="example-full-width">
-              <input mdInput placeholder="Search..." >
+            <md-input-container class="example-full-width" style="padding-top: 2em" >
+              <input mdInput placeholder="Search...">
             </md-input-container>
-            <md-list style="padding-top: 2em" class="border-right">
-              <md-list-item class="icon" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">dashboard</i>Darshboard</md-list-item><md-divider></md-divider>
-              <md-list-item class="icon" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">dashboard</i>Inbox</md-list-item><md-divider></md-divider>
-              <md-list-item class="icon" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">more</i>Notification</md-list-item><md-divider></md-divider>
+            <md-list style="padding-top: 4em; position: fixed" class="border-right">
+              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">dashboard</i>Darshboard</md-list-item><md-divider></md-divider>
+              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">dashboard</i>Inbox</md-list-item><md-divider></md-divider>
+              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em">more</i>Notification</md-list-item><md-divider></md-divider>
             </md-list>
     </div>
   <div class="col-md-10 col-lg-10 col-xs-10 universal-spacer" >
