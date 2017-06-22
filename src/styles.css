@@ -131,7 +131,7 @@ and (min-height : 1050px) and (max-height : 1280px){
   color: darkred;
 }
 .login{
-	color: olive;
+	color: blueviolet;
 }
 .page{
 	background-color: aquamarine;
@@ -141,8 +141,8 @@ and (min-height : 1050px) and (max-height : 1280px){
 	text-shadow: #666;
 }
 .icon:hover{
-	color: white;
-	background-color: #16777c;
+	color: black;
+	background-color: #81dde2;
 }
 .fixed{
 	position: absolute !important;
@@ -186,4 +186,7 @@ box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 1
 }
 .icon_edit:hover{
 	color: darkviolet;
+}
+.options_toolbar:hover{
+	color: #09b9f9;
 }

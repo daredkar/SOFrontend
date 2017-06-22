@@ -1,3 +1,54 @@
-<p>
-  products works!
-</p>
+<div class="card text-center">
+  <div class="card-header">
+     <button type="button" class="btn btn-default btn-sm float-left"  (click)="createJira()"> 
+       <i  style="vertical-align: middle !important;" class="material-icons" >add</i>
+      </button>
+      
+      <label md-icon-button md-primary class="float-right"> 
+         <span mdTooltip="Edit"> <i class="material-icons icon_edit" style="padding-left: 1em;">mode_edit</i></span>
+       </label>
+       <label md-icon-button md-primary class="float-right"> 
+         <span mdTooltip="Edit"> <i class="material-icons icon_delete" style="padding-left: 1em;"><i class="material-icons">delete_forever</i></i></span>
+       </label>
+
+    <h5>List Of Products
+    </h5>
+  </div>
+  <div class="card-block">
+    <!--<h4 class="card-title">Special title treatment</h4>-->
+    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>-->
+    <form class="ui form" #f1="ngForm">
+        <table class="table table-striped table-hover table-bordered table-responsive screenResize" style="table-layout: fixed">
+            <thead class="thead">
+                <tr>
+                    <th width="5%" ><input type="checkbox" (change)="checkAll($event)"/></th>
+                    <th width="5%">info</th>
+                    <th width="15%" >Cosumer no</th>
+                    <th width="35%">Name</th>
+                    <th width="20%">Status</th>
+                    <th width="10%">Location</th>
+                    <th width="10%">Location</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let t of n_Jira;">
+                    <td scope="row"><input type="checkbox" (change)="jiraSelected(t['Incident ID'],$event)" [checked]="t.checked"></td>
+                    <td scope="row"><button md-icon-button (click)="open(content,t['Incident ID'],$event)"><i class="material-icons orange600">info_outline</i></button></td>
+                    <td > {{ t['Incident ID'] }} </td>
+                    <td >{{ t.Title }}</td>
+                    <td ><span mdTooltip="Click for Attachement"><a href="https://daredkar.atlassian.net/browse/{{t.jiraCreated}}" class="link" target="_blank">{{t.jiraCreated}}</a></span></td>
+                    <td ><app-jira-in-details style="padding-left: 3em;"></app-jira-in-details></td>
+                </tr>
+            </tbody>
+            <ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
+                    <strong>Warning!</strong> {{record_not_available}}
+                </ngb-alert>
+        </table>
+          <router-outlet></router-outlet>
+      </form>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>

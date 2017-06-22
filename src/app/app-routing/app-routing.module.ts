@@ -8,6 +8,8 @@ import {CSVToJsonComponent } from '../components/csvto-json/csvto-json.component
 import {ComingSoonComponent} from '../components/coming-soon/coming-soon.component';
 import { DragAndDropComponent } from '../components/drag-and-drop/drag-and-drop.component';
 import { ConsumersComponent } from '../components/consumers/consumers.component';
+import { ProductsComponent } from '../components/products/products.component';
+import { SaleComponent } from '../components/sale/sale.component';
 
 
 const appRoutes: Routes = [
@@ -17,7 +19,8 @@ const appRoutes: Routes = [
   { path: '\get', component: CSVToJsonComponent },
   { path: '\comingsoon', component: DragAndDropComponent },
   { path: '\consumer', component: ConsumersComponent },
-
+  { path: '\products', component: ProductsComponent },
+  { path: '\sale', component: SaleComponent },
 ];
 @NgModule({
   imports: [
