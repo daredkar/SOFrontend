@@ -12,4 +12,7 @@ export class ConsumersComponent implements OnInit {
   ngOnInit() {
   }
 
+  addConsumer(){
+    
+  }
 }
