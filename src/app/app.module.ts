@@ -25,6 +25,9 @@ import { ConsumersComponent } from './components/consumers/consumers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SaleComponent } from './components/sale/sale.component';
 
+import {AuthGuard} from './app-guard/auth.guard';
+import {LoginService} from './services/login.service';
+import { ProductsAdditionformComponent } from './components/products/products-additionform/products-additionform.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { SaleComponent } from './components/sale/sale.component';
     ConsumersComponent,
     ProductsComponent,
     SaleComponent,
+    ProductsAdditionformComponent,
       ],
   imports: [
     BrowserModule,
@@ -55,7 +59,7 @@ import { SaleComponent } from './components/sale/sale.component';
     MdButtonModule, MdCheckboxModule, Ng2FileInputModule.forRoot(),
 
   ],
-  providers: [],
+  providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

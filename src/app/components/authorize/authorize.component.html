@@ -1,4 +1,6 @@
-<div style="background:#036;margin-top:15% " class="nb-login" >
+<div class="row">
+<div class="col-md-6 col-lg-6 col-xs-6 universal-spacer" *ngIf = "!loggedIn">
+	<div style="background:#036;margin-top:15%; margin-left: 10%" class="nb-login" >
 	<h3 class="scenter">Log In</h3>
 	<form id="test" novalidate [formGroup]="AuthForm">
 		<div class="form-group">
@@ -10,4 +12,10 @@
 		<button type="submit"  class="btn btn-block" (click) = "loginForSingle()">Sign In</button>
 	</form>
 </div>
+<md-divider></md-divider>
+</div>
+<div class="col-md-6 col-lg-6 col-xs-6" *ngIf = "!loggedIn">
+<!--<img src="{{imgPath}}" height="60%" width="60%">-->
 
+</div>
+</div>

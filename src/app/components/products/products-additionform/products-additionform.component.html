@@ -1,0 +1,82 @@
+<form id="productAdd" novalidate [formGroup]="AddProductForm">
+    <md-tab-group>
+      <md-tab label="Mandatory Basic info" style="overflow: scroll;">
+          <div class="form-group row" style="padding-top: 1em">
+            <label for="example-text-input" class="col-2 col-form-label">Name</label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="name of product" id="example-text-input" formControlName="prod_name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-search-input" class="col-2 col-form-label">Quantity</label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="in units"  id="example-search-input" formControlName="prod_quantity">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Categories</label>
+            <div class="col-10">
+              <select class="custom-select" formControlName="prod_category">
+                <option *ngFor="let c of categories" selected >{{ c.value }}</option>
+              </select>            
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Sub-Categories</label>
+            <div class="col-10">
+              <select class="custom-select" formControlName="prod_subcategory">
+                <option *ngFor="let c of categories" selected >{{ c.value }}</option>
+              </select>            
+            </div>
+          </div>
+          <div class="form-group row" style="padding-top: 2em">
+            <label for="example-text-input" class="col-2 col-form-label">Manufacture Name</label>
+            <div class="col-10">
+              <input class="form-control" type="text" placeholder="name of product" id="example-text-input" formControlName="prod_manufacture">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-tel-input" class="col-2 col-form-label">Manufacture Telephone</label>
+            <div class="col-10">
+              <input class="form-control" type="tel" placeholder="90008786" id="example-tel-input" formControlName="prod_manufactureno">
+            </div>
+          </div>
+    </md-tab>
+     
+    <md-tab label="Additional Info">
+      <div class="form-group row"  style="padding-top: 1em">
+            <label for="example-password-input" class="col-2 col-form-label" >Code</label>
+            <div class="col-10">
+              <input class="form-control" type="password" id="example-password-input" formControlName="prod_code">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Status</label>
+            <div class="col-10">
+              <select class="custom-select" formControlName="prod_status">
+                <option *ngFor="let s of status" selected >{{ s.value }}</option>
+              </select>            
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Total Investment</label>
+            <div class="col-10">
+              <input class="form-control" type="number" placeholder="in Ruppes" id="example-number-input" formControlName="prod_investment">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Purchase Date</label>
+            <div class="col-10">
+              <input class="form-control" type="date" value="2011-08-19" id="example-date-input" formControlName="prod_date">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-color-input" class="col-2 col-form-label">Color</label>
+            <div class="col-10">
+              <input class="form-control" type="text" value="#563d7c" id="example-color-input" formControlName="prod_color">
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-success float-right" (click)= "AddProductCP()">Create Product</button>
+    </md-tab>
+  </md-tab-group>
+</form>

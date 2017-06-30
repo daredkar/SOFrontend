@@ -10,17 +10,19 @@ import { DragAndDropComponent } from '../components/drag-and-drop/drag-and-drop.
 import { ConsumersComponent } from '../components/consumers/consumers.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { SaleComponent } from '../components/sale/sale.component';
+import {AuthGuard} from '../app-guard/auth.guard';
+import {LoginService} from '../services/login.service';
 
 
 const appRoutes: Routes = [
   { path: '', component: AuthorizeComponent },
   { path: 'bulkCreate', component: BulkCreateJiraComponent },
   { path: '\login', component: AuthorizeComponent },
-  { path: '\get', component: CSVToJsonComponent },
-  { path: '\comingsoon', component: DragAndDropComponent },
-  { path: '\consumer', component: ConsumersComponent },
-  { path: '\products', component: ProductsComponent },
-  { path: '\sale', component: SaleComponent },
+  { path: '\get', component: CSVToJsonComponent, canActivate: [AuthGuard] },
+  { path: '\comingsoon', component: DragAndDropComponent, canActivate: [AuthGuard] },
+  { path: '\consumer', component: ConsumersComponent, canActivate: [AuthGuard]},
+  { path: '\products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: '\sale', component: SaleComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: []
+  declarations: [],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule { }
-export const routingComponents = [BulkCreateJiraComponent];
+export const routingComponents = [BulkCreateJiraComponent, AuthorizeComponent, CSVToJsonComponent, ConsumersComponent, ProductsComponent,SaleComponent]

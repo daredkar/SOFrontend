@@ -16,6 +16,7 @@ export class AuthorizeComponent implements OnInit {
   username: string;
   password: string;
   user: string;
+  imgPath = '../../../assets/front.jpg';
   constructor(private logon: LoginService, private router: Router) {  }
 
   ngOnInit() {

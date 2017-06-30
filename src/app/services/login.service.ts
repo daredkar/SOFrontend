@@ -13,6 +13,7 @@ export class LoginService {
         //console.log(localStorage.getItem('currentuser'));
         if (this.user === 'YWRtaW46YWRtaW4=') {
             localStorage.setItem('loggedIn', 'true');
+            this.loggedIn = true;
             return true;
         }else {
             localStorage.setItem('loggedIn', 'false');
@@ -24,5 +25,8 @@ export class LoginService {
         localStorage.setItem('loggedIn', 'false');
         localStorage.clear();
     }
-
+getLoggedIn() {
+        console.log("logggggg"+this.loggedIn)
+        return this.loggedIn;
+    }
 }
