@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MdButtonModule, MdCheckboxModule, MdCardModule, MdToolbarModule, MdMenuModule, MdIconModule} from '@angular/material';
 import 'hammerjs';
 import { Ng2FileInputModule } from 'ng2-file-input';
 
@@ -24,10 +24,12 @@ import { JiraInDetailsComponent } from './components/jira-in-details/jira-in-det
 import { ConsumersComponent } from './components/consumers/consumers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SaleComponent } from './components/sale/sale.component';
-
+// Guards
 import {AuthGuard} from './app-guard/auth.guard';
+
 import {LoginService} from './services/login.service';
 import { ProductsAdditionformComponent } from './components/products/products-additionform/products-additionform.component';
+import { ConsumerAdditionFormComponent } from './components/consumers/consumer-addition-form/consumer-addition-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ProductsAdditionformComponent } from './components/products/products-ad
     ProductsComponent,
     SaleComponent,
     ProductsAdditionformComponent,
+    ConsumerAdditionFormComponent,
       ],
   imports: [
     BrowserModule,
@@ -56,8 +59,8 @@ import { ProductsAdditionformComponent } from './components/products/products-ad
     MaterialModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    MdButtonModule, MdCheckboxModule, Ng2FileInputModule.forRoot(),
-
+    MdButtonModule, MdCheckboxModule, Ng2FileInputModule.forRoot(), MdCardModule,
+    MdToolbarModule, MdMenuModule, MdIconModule
   ],
   providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]

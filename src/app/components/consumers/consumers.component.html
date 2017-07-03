@@ -1,6 +1,6 @@
 <div class="card text-center">
   <div class="card-header">
-     <button type="button" class="btn btn-default btn-sm float-left"  (click)="createJira()"> 
+     <button type="button" class="btn btn-default btn-sm float-left"  (click)="open(content,$event)"> 
        <i  style="vertical-align: middle !important;" class="material-icons" >add</i>
       </button>
       
@@ -11,13 +11,10 @@
          <span mdTooltip="Edit"> <i class="material-icons icon_delete" style="padding-left: 1em;"><i class="material-icons">delete_forever</i></i></span>
        </label>
 
-    <h5>List Of Consumers
+    <h5>Consumer Accounts
     </h5>
   </div>
   <div class="card-block">
-    <!--<h4 class="card-title">Special title treatment</h4>-->
-    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>-->
     <form class="ui form" #f1="ngForm">
         <table class="table table-striped table-hover table-bordered table-responsive screenResize" style="table-layout: fixed">
             <thead class="thead">
@@ -32,7 +29,7 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let t of n_Jira;">
+                <tr *ngFor="let t of product_list;">
                     <td scope="row"><input type="checkbox" (change)="jiraSelected(t['Incident ID'],$event)" [checked]="t.checked"></td>
                     <td scope="row"><button md-icon-button (click)="open(content,t['Incident ID'],$event)"><i class="material-icons orange600">info_outline</i></button></td>
                     <td > {{ t['Incident ID'] }} </td>
@@ -43,7 +40,7 @@
             </tbody>
             <ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
                     <strong>Warning!</strong> {{record_not_available}}
-                </ngb-alert>
+            </ngb-alert>
         </table>
           <router-outlet></router-outlet>
       </form>
@@ -51,4 +48,14 @@
   <div class="card-footer text-muted">
     2 days ago
   </div>
+  <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <div class="modal-title" >Register Account
+                
+            </div><button type="button" class="btn btn-secondary" (click)="c('Close click')" >close</button>
+        </div>
+        <div class="modal-body">
+            <p><app-consumer-addition-form>Loading ...</app-consumer-addition-form></p>
+        </div>
+    </ng-template>
 </div>
