@@ -14,7 +14,6 @@ export class ConsumersComponent implements OnInit {
     //const options: NgbModalOptions = { size: 'lg'};
     this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
     //this.modalOption.size = 'lg';
-    
     }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
