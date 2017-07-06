@@ -4,7 +4,7 @@
 <div class="col-md-6 col-lg-6 col-xs-6 universal-spacer" >
 <div class="card text-center">
   <div class="card-header">
-     <button type="button" class="btn btn-default btn-sm float-left"  (click)="createJira()"> 
+     <button type="button" class="btn btn-default btn-sm float-left" > 
        <i  style="vertical-align: middle !important;" class="material-icons" >add</i>
       </button>
       
@@ -26,7 +26,7 @@
         <table class="table table-striped table-hover table-bordered table-responsive screenResize" style="table-layout: fixed">
             <thead class="thead">
                 <tr>
-                    <th width="5%" ><input type="checkbox" (change)="checkAll($event)"/></th>
+                    <th width="5%" ><input type="checkbox" /></th>
                     <th width="5%">info</th>
                     <th width="15%" >Cosumer no</th>
                     <th width="35%">Name</th>
@@ -36,18 +36,18 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let t of n_Jira;">
+                <!--<tr *ngFor="let t of n_Jira;">
                     <td scope="row"><input type="checkbox" (change)="jiraSelected(t['Incident ID'],$event)" [checked]="t.checked"></td>
                     <td scope="row"><button md-icon-button (click)="open(content,t['Incident ID'],$event)"><i class="material-icons orange600">info_outline</i></button></td>
                     <td > {{ t['Incident ID'] }} </td>
                     <td >{{ t.Title }}</td>
                     <td ><span mdTooltip="Click for Attachement"><a href="https://daredkar.atlassian.net/browse/{{t.jiraCreated}}" class="link" target="_blank">{{t.jiraCreated}}</a></span></td>
                     <td ><app-jira-in-details style="padding-left: 3em;"></app-jira-in-details></td>
-                </tr>
+                </tr>-->
             </tbody>
-            <ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
+            <!--<ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
                     <strong>Warning!</strong> {{record_not_available}}
-                </ngb-alert>
+                </ngb-alert>-->
         </table>
           <router-outlet></router-outlet>
       </form>
@@ -60,7 +60,7 @@
   <div class="col-md-6 col-lg-6 col-xs-6 universal-spacer" >
 <div class="card text-center">
   <div class="card-header">
-     <button type="button" class="btn btn-default btn-sm float-left"  (click)="createJira()"> 
+     <button type="button" class="btn btn-default btn-sm float-left" > 
        <i  style="vertical-align: middle !important;" class="material-icons" >add</i>
       </button>
       
@@ -82,7 +82,7 @@
         <table class="table table-striped table-hover table-bordered table-responsive screenResize" style="table-layout: fixed">
             <thead class="thead">
                 <tr>
-                    <th width="5%" ><input type="checkbox" (change)="checkAll($event)"/></th>
+                    <th width="5%" ><input type="checkbox"/></th>
                     <th width="5%">info</th>
                     <th width="15%" >Cosumer no</th>
                     <th width="35%">Name</th>
@@ -92,18 +92,18 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let t of n_Jira;">
+                <!--<tr *ngFor="let t of n_Jira;">
                     <td scope="row"><input type="checkbox" (change)="jiraSelected(t['Incident ID'],$event)" [checked]="t.checked"></td>
                     <td scope="row"><button md-icon-button (click)="open(content,t['Incident ID'],$event)"><i class="material-icons orange600">info_outline</i></button></td>
                     <td > {{ t['Incident ID'] }} </td>
                     <td >{{ t.Title }}</td>
                     <td ><span mdTooltip="Click for Attachement"><a href="https://daredkar.atlassian.net/browse/{{t.jiraCreated}}" class="link" target="_blank">{{t.jiraCreated}}</a></span></td>
                     <td ><app-jira-in-details style="padding-left: 3em;"></app-jira-in-details></td>
-                </tr>
+                </tr>-->
             </tbody>
-            <ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
+            <!--<ngb-alert [dismissible]="true" *ngIf="!is_csv_uploaded">
                     <strong>Warning!</strong> {{record_not_available}}
-                </ngb-alert>
+                </ngb-alert>-->
         </table>
           <router-outlet></router-outlet>
       </form>

@@ -56,7 +56,7 @@ import { ConsumerAdditionFormComponent } from './components/consumers/consumer-a
     AppRoutingModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MaterialModule,
+    MaterialModule  ,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule, MdCheckboxModule, Ng2FileInputModule.forRoot(), MdCardModule,
