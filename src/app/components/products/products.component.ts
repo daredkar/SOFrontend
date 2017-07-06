@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
   }
-  open(content, list: string , event: any) {
+  open(content, event: any) {
     //const options: NgbModalOptions = { size: 'lg'};
     this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
     //this.modalOption.size = 'lg';
