@@ -1,90 +1,116 @@
-  <div class="container-fluid">
-    <div class="row">
-      <md-toolbar  style=" position: fixed; z-index: 6; background-color: #229ca3" class="toolbar-shadow">
-          <span mdTooltip="Options"><button md-button  *ngIf = "loggedIn" class="logout options_toolbar" [mdMenuTriggerFor]="menumain"> 
-            <i class="material-icons example-icon" style="font-size: 48px;">donut_small</i></button> </span>
-          <span class="example-spacer"><h3 style="font-family:verdana; color: white; padding-left: 2em; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Show-Off Sales Application</h3></span>
-          <md-menu #menumain="mdMenu">
-            <button md-menu-item> <i class="material-icons example-icon" style="font-size: 22px; color: olive" >shopping_cart</i>Products</button>
-            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: #9b0413">supervisor_account</i>Consumer</button>
-            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: skyblue">assessment</i>Sale</button>
-            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: violet">update</i>Task Tracking</button>
-            <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">dashboard</i>Dashboard</button>
-            <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
-          </md-menu>
-          <nav md-tab-nav-bar>
-              <label md-tab-link
-              [routerLink]="['/login']"
-              routerLinkActive #rla="routerLinkActive"
-              [active]="rla.isActive"
-              *ngIf = "!loggedIn">
-              <span mdTooltip="Login"><i class="material-icons login" md-68 style="font-size: 48px;">&#xE853;</i></span>
-              <!--Login-->
-            </label>
-            <label md-tab-link
-              [routerLink]="['/products']"
-              routerLinkActive #rla="routerLinkActive"
-              [active]="rla.isActive"
-              *ngIf = "loggedIn" class="icon" style="font-size: 17px">
-              <i class="material-icons" style="padding-right: 0.5em;  color: darkblue">shopping_cart</i>Products
-            </label>
-            <label md-tab-link
-              [routerLink]="['/consumer']"
-              routerLinkActive #rla="routerLinkActive"
-              [active]="rla.isActive"
-              *ngIf = "loggedIn" class="icon" style="font-size: 17px">
-              <i class="material-icons" style="padding-right: 0.5em; color: yellow">supervisor_account</i>Consumers
-            </label>
-            <label md-tab-link
-              [routerLink]="['/sale']"
-              routerLinkActive #rla="routerLinkActive"
-              [active]="rla.isActive"
-              *ngIf = "loggedIn" class="icon" style="font-size: 17px">
-              <i class="material-icons" style="padding-right: 0.5em; color: red">assessment</i>Sale
-            </label>
-            <label md-tab-link
-              [routerLink]="['\login']"
-              routerLinkActive #rla="routerLinkActive"
-              [active]="rla.isActive"
-              *ngIf = "loggedIn" class="icon" style="font-size: 17px">
-              <i class="material-icons" style="padding-right: 0.5em; color: green">update</i>Task Tracking
-            </label>
-          </nav>
-          <span mdTooltip="Profile"><button md-button  *ngIf = "loggedIn" class="logout" style="color: #bf2b49" [mdMenuTriggerFor]="menu"> <i class="material-icons example-icon" style="font-size: 38px;">assignment_ind</i></button> </span>
-
-          <md-menu md-position-mode="target-right target" md-offset="0 42" #menu="mdMenu" >
-            <button md-menu-item> <i class="material-icons example-icon login" style="font-size: 22px;">&#xE853;</i>Edit Profile</button>
-            <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
-          </md-menu>
-  
-      </md-toolbar> 
-    </div>
-
-    <!--<div class="row">
-      <div class="col-md-12 col-lg-12 col-xs-12" style="background-color: #efedef">
-  
-    </div>
-  </div>-->
-    <div class="row border-right" style="padding-top: 4em; z-index: 5;">
-      <div class="col-md-2 col-lg-2 col-xs-2 universal-spacer" *ngIf = "loggedIn">
-            <md-list style="padding-top: 4em; position: fixed" class="border-right">
-                <md-list-item    style="padding-top: 0.5em">
-                <md-input-container>
-                  <input mdInput placeholder="Search...">
-                </md-input-container></md-list-item>
-              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #7cc5f9">verified_user</i>Admin Module</md-list-item><md-divider></md-divider>
-              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #a8109e">dashboard</i>Darshboard</md-list-item><md-divider></md-divider>
-              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #59e088">contact_mail</i>Inbox</md-list-item><md-divider></md-divider>
-              <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #e5d58e">more</i>Notification</md-list-item><md-divider></md-divider>
-            </md-list>
-    </div>
-  <div class="col-md-10 col-lg-10 col-xs-10 universal-spacer" style="z-index: 4;">
-      <router-outlet></router-outlet>
-  </div>
-  </div>
-  </div>
-  <!--<div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded toolbar-shadow" style="position: fixed; width: 100%; z-index: 6; background-color: #229ca3;">
+      <label class="navbar-brand">
+        <span mdTooltip="Options"><button md-button  *ngIf = "loggedIn" class="logout options_toolbar" [mdMenuTriggerFor]="menumain"> 
+          <i class="material-icons example-icon" style="font-size: 48px;">donut_small</i></button> </span>      
+          <md-menu #menumain="mdMenu">
+          <button md-menu-item> <i class="material-icons example-icon" style="font-size: 22px; color: olive" >shopping_cart</i>Products</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: #9b0413">supervisor_account</i>Consumer</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: skyblue">assessment</i>Sale</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: violet">update</i>Task Tracking</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">dashboard</i>Dashboard</button>
+          <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
+        </md-menu>
+        SF Sale Gateway</label>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText" >
+      <nav md-tab-nav-bar class="nav">
+            <label md-tab-link
+            [routerLink]="['/login']"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "!loggedIn">
+            <span mdTooltip="Login"><i class="material-icons login" md-68 style="font-size: 48px;">&#xE853;</i></span>
+          </label>
+          
+          <label md-tab-link
+            [routerLink]="['/products']"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "loggedIn" class="icon" style="font-size: 17px">
+            <i class="material-icons" style="padding-right: 0.5em;  color: darkblue">shopping_cart</i>Products
+          </label>
+          
+          <label md-tab-link
+            [routerLink]="['/consumer']"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "loggedIn" class="icon" style="font-size: 17px">
+            <i class="material-icons" style="padding-right: 0.5em; color: yellow">supervisor_account</i>Consumers
+          </label>
+          
+          <label md-tab-link
+            [routerLink]="['/sale']"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "loggedIn" class="icon" style="font-size: 17px">
+            <i class="material-icons" style="padding-right: 0.5em; color: red">assessment</i>Sale
+          </label>
+          
+          <label md-tab-link
+            [routerLink]="['comingsoon']"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "loggedIn" class="icon" style="font-size: 17px">
+            <i class="material-icons" style="padding-right: 0.5em; color: green">update</i>Task Tracking
+          </label>
+          
+          <label md-tab-link
+            [mdMenuTriggerFor]="menuforAdmin"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive"
+            *ngIf = "loggedIn" class="icon" style="font-size: 17px">
+            <i class="material-icons" style="padding-right: 0.5em;  color: red">verified_user</i>Administrate
+          </label>
+      </nav>
+        <!--<span mdTooltip="Profile" style="padding-left: 3em"><button md-button  *ngIf = "loggedIn" class="logout" style="color: #bf2b49" [mdMenuTriggerFor]="menu"> <i class="material-icons example-icon" style="font-size: 38px;">assignment_ind</i></button> </span>
+
+        <md-menu md-position-mode="target-right target" md-offset="0 42" #menu="mdMenu" >
+          <button md-menu-item> <i class="material-icons example-icon login" style="font-size: 22px;">&#xE853;</i>Edit Profile</button>
+          <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
+        </md-menu>-->
+        <md-menu md-position-mode="target-right target" md-offset="0 42" #menuforAdmin="mdMenu" >
+          <button md-menu-item> <i class="material-icons example-icon login" style="font-size: 22px;">&#xE853;</i>Edit Profile</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">dashboard</i>Dashboard</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">verified_user</i>Admin Module</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">contact_mail</i>Inbox</button>
+          <button md-menu-item ><i class="material-icons example-icon" style="font-size: 20px; color: black">more</i>Notification</button>
+          <button md-menu-item (click) = "logout()"><i class="material-icons example-icon" style="font-size: 20px;" style="color: #9b0413">power_settings_new</i>Logout</button>
+        </md-menu>
+      </div>
+    </nav>
+    
+    
+  </div>
+
+  <!--<div class="row">
+    <div class="col-md-12 col-lg-12 col-xs-12" style="background-color: #efedef">
 
   </div>
-  </div>-->
+</div>-->
+  <div class="row border-right">
+    <div class="col-md-2 col-lg-2 col-xs-2 universal-spacer" *ngIf = "loggedIn">
+          <md-list style="padding-top: 6em; position: fixed; z-index: 4;" class="border-right">
+              <md-list-item    style="padding-top: 0.5em">
+              <md-input-container>
+                <input mdInput placeholder="Search...">
+              </md-input-container></md-list-item>
+            <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #7cc5f9">verified_user</i>Admin Module</md-list-item><md-divider></md-divider>
+            <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #a8109e">dashboard</i>Darshboard</md-list-item><md-divider></md-divider>
+            <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #59e088">contact_mail</i>Inbox</md-list-item><md-divider></md-divider>
+            <md-list-item class="sidebar-color" style="padding-top: 0.5em"><i class="material-icons" style="padding-right: 0.5em; color: #e5d58e">more</i>Notification</md-list-item><md-divider></md-divider>
+          </md-list>
+  </div>
+<div class="col-md-10 col-lg-10 col-xs-10 universal-spacer" style="z-index: 5; padding-top: 6em;">
+    <router-outlet></router-outlet>
+</div>
+</div>
+</div>
+<!--<div class="container-fluid">
+<div class="row">
+
+</div>
+</div>-->
